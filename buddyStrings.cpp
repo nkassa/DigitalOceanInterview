@@ -6,18 +6,15 @@ public:
         {
             return false;
         }
-        unordered_map<char,int> count;
-        for(char c: s)
-        {
-            count[c]++;
-            if(s == goal && count[c] > 1)
-            {
-                return true;
-            }
-        }
+        unordered_set<char> seen;
         vector<int> idx;
         for(int i = 0; i < s.size(); i++)
         {
+            if(s == goal && seen.find(s[i]) != seen.end())
+            {
+                return true;
+            }
+            seen.insert(s[i]);
             if(s[i] != goal[i])
             {
                 idx.push_back(i);
@@ -35,4 +32,4 @@ public:
         }
         return false;
     }
-};//
+};
