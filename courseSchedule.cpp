@@ -2,7 +2,7 @@ class Solution {
 public:
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) 
     {
-        unordered_map<int, vector<int>> classes;
+        vector<vector<int>> classes(numCourses);
         vector<int> indegree(numCourses, 0);
         for(vector<int> pre: prerequisites)
         {
