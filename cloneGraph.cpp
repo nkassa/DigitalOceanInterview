@@ -21,22 +21,24 @@ public:
 
 class Solution {
 public:
+    unordered_map<Node*, Node*> count;
     Node* cloneGraph(Node* node) 
     {
-        unordered_map<Node*, Node*> count;
-        while(node)
+        if(!node)
         {
-            count[node] = new Node(node->val);
-            for(Node* neighbor: node->neighbors)
+            return nullptr;
+        }
+        Node* curr = new Node(node->val);
+        count[node] = curr;
+        for(Node* neighbor: node->neighbors)
+        {
+            if(count.find(neighbor) != count.end())
             {
-                if(count.find(neighbor) != count.end())
-                {
-                    count[node]->neighbors.push_back(seen[neighbor]);
-                }
-                else
-                {
-                    count[node]->neighbors.push_back(cloneGraph(neighbor));
-                }
+                count[node]->neighbors.push_back(count[neighbor]);
+            }
+            else
+            {
+                count[node]->neighbors.push_back(cloneGraph(neighbor));
             }
         }
         return count[node];
