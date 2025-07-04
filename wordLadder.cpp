@@ -4,12 +4,12 @@ public:
     {
         unordered_set<string> count;
         unordered_set<string> list;
+        queue<pair<int,string>> queue;
         for(string word: wordList)
         {
             list.insert(word);
         }
         count.insert(beginWord);
-        queue<pair<int,string>> queue;
         queue.push({1, beginWord});
         while(!queue.empty())
         {
@@ -22,13 +22,14 @@ public:
             queue.pop();
             for(char c: "abcdefghijklmnopqrstuvwxyz")
             {
-                string neighbor = curr;
-                for(int i = 0; i < neighbor.size(); i++)
+                for(int i = 0; i < curr.size(); i++)
                 {
+                    string neighbor = curr;
                     neighbor[i] = c;
-                    if(list.find(neighbor) != list.end())
+                    if(list.find(neighbor) != list.end() && count.find(neighbor) == count.end())
                     {
                         queue.push({steps+1, neighbor});
+                        count.insert(neighbor);
                     }
                 }
             }
