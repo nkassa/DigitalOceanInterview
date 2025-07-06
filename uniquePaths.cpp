@@ -16,11 +16,11 @@ public:
         int way = 0;
         if(m > 0)
         {
-            way += memo[m-1][n];
+            way += dp(m-1, n);
         }
         if(n > 0)
         {
-            way += memo[m][n-1];
+            way += dp(m, n-1);
         }
         memo[m][n] = way;
         return memo[m][n];
