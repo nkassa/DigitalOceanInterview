@@ -2,23 +2,28 @@ class Solution {
 public:
     bool rotateString(string s, string goal) 
     {
-        unordered_map<char,int> count;
-        for(char c: s)
+        if(s.size() != goal.size())
         {
-            count[c]++;
+            return false;
         }
-        for(char c: goal)
+        int idxTwo = 0;
+        while(idxTwo < goal.size())
         {
-            if(count.find(c) == count.end())
+            if(s[0] == goal[idxTwo])
+            {
+                break;
+            }
+            idxTwo++;
+        }
+        for(int i = 0; i < s.size(); i++)
+        {
+            idxTwo %= goal.size();
+            if(s[i] != goal[idxTwo])
             {
                 return false;
             }
-            count[c]--;
-            if(count[c] == 0)
-            {
-                count.erase(c);
-            }
-        } 
-        return count.size() == 0;
+            idxTwo++;
+        }
+        return true;
     }
 };
