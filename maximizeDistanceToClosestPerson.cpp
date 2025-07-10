@@ -9,15 +9,13 @@ public:
         {
             if(seats[i] == 1)
             {
-                cout << "add " << i << endl;
                 list.push_back(i);
             }
         }
         list.push_back(seats.size()-1);
         for(int i = 1; i < list.size(); i++)
         {
-            ans = max(ans, (list[i] - list[i-1]+1)/2);
-            cout << list[i] << " " << ans << endl;
+            ans = max(ans, (list[i] - list[i-1])/2);
         }
         return ans;
     }
