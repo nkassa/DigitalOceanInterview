@@ -13,7 +13,7 @@ public:
         }
         for(int i = 1; i < list.size(); i++)
         {
-            ans = max(ans, (list[i] - list[i-1]+1)/2);
+            ans = max(ans, (list[i] - list[i-1])/2);
         }
         int x = seats.size()-1;
         int y = list.size()-1;
