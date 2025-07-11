@@ -19,15 +19,17 @@ public:
             }
             count.erase(num);
         }
+        int cnt = 0;
         for(auto [key,val]: count)
         {
             for(int j = 0; j < val; j++)
             {
                 ans[i] = key;
                 i++;
+                cnt++;
             }
         }
-        int idx = arr1.size()-arr2.size();
+        int idx = arr1.size()-cnt;
         sort(ans.begin() + idx, ans.end());
         return ans;
     }
