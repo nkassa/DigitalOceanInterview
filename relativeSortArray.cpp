@@ -27,6 +27,8 @@ public:
                 i++;
             }
         }
+        int idx = arr1.size()-arr2.size();
+        sort(ans.begin() + idx, ans.end());
         return ans;
     }
 };
