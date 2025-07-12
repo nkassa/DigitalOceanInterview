@@ -12,7 +12,7 @@ public:
     {
         if(memo[dice][target] != -1)
         {
-            return memo[dice][target] % mod;
+            return memo[dice][target];
         }
         if(target == 0 || dice == 0)
         {
