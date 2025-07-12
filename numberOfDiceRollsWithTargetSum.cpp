@@ -10,17 +10,13 @@ public:
     }
     int dp(int dice, int target, int& k)
     {
-        if(target == 0 && dice == 0)
+        if(memo[dice][target] != -1)
         {
-            return 1;
+            return memo[dice][target] % mod;
         }
         if(target == 0 || dice == 0)
         {
             return 0;
-        }
-        if(memo[dice][target] != -1)
-        {
-            return memo[dice][target] % mod;
         }
         long int way = 0;
         for(int i = 1; i <= k; i++)
