@@ -33,7 +33,7 @@ public:
                 ans[i][col] = num;
                 num++;
             }
-            col--;
+            col++;
         }
         return ans;
     }
