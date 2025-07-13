@@ -13,7 +13,7 @@ public:
         n = grid[0].size();
         seen = vector(m, vector<bool>(n, false));
         queue<vector<int>> queue;
-        int cnt = 0;
+        int one = 0;
         for(int row = 0; row < m; row++)
         {
             for(int col = 0; col < n; col++)
@@ -25,7 +25,7 @@ public:
                 }
                 else if(grid[row][col] == 1)
                 {
-                    cnt++;
+                    one++;
                 }
             }
         }
@@ -40,7 +40,7 @@ public:
                 int nextCol = direction[1] + curr[1];
                 if(valid(nextRow, nextCol) && !seen[nextRow][nextCol])
                 {
-                    cnt--;
+                    one--;
                     seen[nextRow][nextCol] = true;
                     queue.push({nextRow,nextCol,curr[2]+1});
                 }
