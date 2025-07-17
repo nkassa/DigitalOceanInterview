@@ -7,11 +7,13 @@ public:
         {
             if(n % i == 0)
             {
-                string str = s.substr(0, i);
-                while(str.size() < s.size())
+                string str = "";
+                string temp = s.substr(0, i);
+                for(int j = 0; j < n/i; j++)
                 {
-                    str += str;
+                    str += temp;
                 }
+                cout << str << endl;
                 if(str == s)
                 {
                     return true;

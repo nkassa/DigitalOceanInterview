@@ -9,6 +9,13 @@
     "complex": "cpp",
     "vector": "cpp",
     "iosfwd": "cpp",
-    "iterator": "cpp"
+    "iterator": "cpp",
+    "__hash_table": "cpp",
+    "__split_buffer": "cpp",
+    "array": "cpp",
+    "initializer_list": "cpp",
+    "string": "cpp",
+    "string_view": "cpp",
+    "utility": "cpp"
   }
 }
