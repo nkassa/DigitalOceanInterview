@@ -6,7 +6,7 @@ public:
         {
             return 0;
         }
-        if(nums.size() == 2 && nums[0] < nums[1])
+        if(nums.size() == 2 && nums[0] > nums[1])
         {
             return 1;
         }
