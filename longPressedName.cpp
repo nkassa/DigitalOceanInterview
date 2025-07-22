@@ -10,7 +10,7 @@ public:
             {
                 return false;
             }
-            while(name[i] != typed[idx])
+            while(name[i] != typed[idx] && idx < typed.size())
             {
                 idx++;
             }
