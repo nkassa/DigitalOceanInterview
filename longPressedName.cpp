@@ -4,21 +4,23 @@ public:
     bool isLongPressedName(string name, string typed) 
     {
         int idx = 0;
-        for(int i = 0; i < name.size(); i++)
+        int i = 0;
+        while(i < name.size())
         {
             if(idx >= typed.size())
             {
                 return false;
             }
-            while(name[i] != typed[idx] && idx < typed.size())
+            if(name[i] == typed[idx])
             {
+                i++;
                 idx++;
             }
-            if(name[i] == typed[idx])
+            else
             {
                 idx++;
             }
         }
-        return true;
+        return i == name.size();
     }
 };
