@@ -14,6 +14,10 @@ public:
             {
                 idx++;
             }
+            if(name[i] == typed[idx])
+            {
+                idx++;
+            }
         }
         return true;
     }
