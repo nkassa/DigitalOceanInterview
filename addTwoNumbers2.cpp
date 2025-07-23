@@ -12,24 +12,29 @@ class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) 
     {
+        long long list1;
+        long long list2;
+        while(l1)
+        {
+            list1 += l1->val;
+            l1 = l1->next;
+        }
+        while(l2)
+        {
+            list2 += l2->val;
+            l2 = l2->next;
+        }
+        list1 += list2;
         ListNode* dummy = new ListNode(0);
         ListNode* curr = dummy;
         int carry = 0;
-        while(l1 || l2 || carry != 0)
+        int size = (to_string(list1)).size();
+        while(list1 > 0)
         {
-            int sum = carry;
-            if(l1)
-            {
-                sum += l1->val;
-                l1 = l1->next;
-            }
-            if(l2)
-            {
-                sum += l2->val;
-                l2 = l2->next;
-            }
-            carry = sum / 10;
-            curr->next = new ListNode(sum % 10);
+            int current = list1 / size;
+            curr->next = new ListNode(current);
+            list1 %= size;
+            size /= 10;
             curr = curr->next;
         }
         return dummy->next;
