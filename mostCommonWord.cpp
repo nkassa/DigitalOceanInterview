@@ -2,18 +2,14 @@ class Solution {
 public:
     string mostCommonWord(string paragraph, vector<string>& banned) 
     {
-        unordered_map<string, int> count;
-        unordered_set<string> ban;
-        for(string str: banned)
-        {
-            ban.insert(str);
-        }
         string temp = "";
+        unordered_map<string, int> count;
         for(int i = 0; i < paragraph.size(); i++)
         {
             if(isalpha(paragraph[i]))
             {
-                temp += tolower(paragraph[i]);
+                paragraph[i] = tolower(paragraph[i]);
+                temp += paragraph[i];
             }
             if((!isalpha(paragraph[i]) || i == paragraph.size()-1) && temp.size() != 0)
             {
@@ -22,18 +18,19 @@ public:
             }
         }
         priority_queue<pair<int,string>> heap;
-        for(auto [key,value]: count)
+        for(auto [key,val]: count)
         {
-            heap.push({value, key});
+            heap.push({val, key});
         }
-        while(!heap.empty())
+        unordered_set<string> ban;
+        for(string b: banned)
         {
-            if(ban.find(heap.top().second) == ban.end())
-            {
-                return heap.top().second;
-            }
+            ban.insert(b);
+        }
+        while(!heap.empty() && ban.find(heap.top().second) != ban.end())
+        {
             heap.pop();
         }
-        return "";
+        return heap.top().second;
     }
 };
