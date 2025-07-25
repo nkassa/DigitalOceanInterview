@@ -30,6 +30,10 @@ public:
             ans.pop_back();
         }
         reverse(ans.begin(), ans.end());
+        if(ans.size() == 0)
+        {
+            return "0";
+        }
         return ans;
     }
 };
