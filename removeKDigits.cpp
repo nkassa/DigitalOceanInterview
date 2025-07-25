@@ -24,7 +24,7 @@ public:
             st.pop();
         }
         int idx = ans.size()-1;
-        while(ans[idx] == 0)
+        while(ans[idx] == '0')
         {
             idx--;
             ans.pop_back();
