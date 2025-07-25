@@ -5,7 +5,7 @@ public:
         int left = 0;
         int right = nums.size()-1;
         int curr = 0;
-        while(curr < right)
+        while(curr <= right)
         {
             if(nums[curr] == 0)
             {
