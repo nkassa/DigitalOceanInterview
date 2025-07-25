@@ -4,14 +4,12 @@ public:
     int n;
     vector<vector<int>> directions = {{0,1},{1,0},{0,-1},{-1,0}};
     vector<vector<int>> mat;
-    vector<vector<bool>> seen;
     vector<vector<int>> updateMatrix(vector<vector<int>>& mat) 
     {
         this->mat = mat;
         m = mat.size();
         n = mat[0].size();
         queue<vector<int>> queue;
-        seen = vector(m, vector<bool>(n, false));
         for(int row = 0; row < m; row++)
         {
             for(int col = 0; col < n; col++)
