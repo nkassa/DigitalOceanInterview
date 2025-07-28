@@ -9,7 +9,7 @@ public:
         m = isConnected.size();
         n = isConnected[0].size();
         seen = vector<bool>(n, false);
-        graph = vector(n);
+        graph = vector<vector<int>>(n);
         for(int row = 0; row < m; row++)
         {
             for(int col = 0; col < n; col++)
@@ -23,9 +23,12 @@ public:
         int ans = 0;
         for(int i = 0; i < seen.size(); i++)
         {
-            ans++;
-            seen[i] = true;
-            dfs(i);
+            if(seen[i] == false)
+            {
+                ans++;
+                seen[i] = true;
+                dfs(i);
+            }
         }
         return ans;
     }
@@ -33,7 +36,11 @@ public:
     {
         for(int neig: graph[row])
         {
-            seen[neig] = true;
+            if(seen[neig] == false)
+            {
+                seen[neig] = true;
+                dfs(neig);
+            }
         }
     }
 };
