@@ -16,9 +16,24 @@ public:
             {
                 if(isConnected[row][col] == 1)
                 {
-                    
+                    graph[row].push_back(col);
                 }
             }
+        }
+        int ans = 0;
+        for(int i = 0; i < seen.size(); i++)
+        {
+            ans++;
+            seen[i] = true;
+            dfs(i);
+        }
+        return ans;
+    }
+    void dfs(int row)
+    {
+        for(int neig: graph[row])
+        {
+            seen[neig] = true;
         }
     }
 };
