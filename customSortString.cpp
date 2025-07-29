@@ -10,18 +10,10 @@ public:
         string ans = "";
         for(int i = 0; i < order.size(); i++)
         {
-            if(seen.find(order[i]) != seen.end())
+            while(seen[order[i]] > 0)
             {
-                int size = seen[order[i]];
-                for(int j = 0; j < size; j++)
-                {
-                    ans += order[i];
-                    seen[order[i]]--;
-                    if(seen[order[i]] == 0)
-                    {
-                        seen.erase(order[i]);
-                    }
-                }
+                ans += order[i];
+                seen[order[i]]--;
             }
         }
         for(auto [key, val]: seen)
