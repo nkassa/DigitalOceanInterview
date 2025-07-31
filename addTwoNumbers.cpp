@@ -12,10 +12,10 @@ class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) 
     {
-        int carry = 0;
         ListNode* ans = new ListNode(0);
         ListNode* curr = ans;
-        while(l1 || l2 || carry)
+        int carry = 0;
+        while(l1 || l2 || carry > 0)
         {
             int sum = carry;
             if(l1)
@@ -34,4 +34,4 @@ public:
         }
         return ans->next;
     }
-};
+};//
