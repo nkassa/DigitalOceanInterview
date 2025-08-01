@@ -16,6 +16,10 @@ public:
                 idx = i;
             }
         }
+        if(idx == 0 || idx == arr.size()-1)
+        {
+            return false;
+        }
         for(int i = 1; i < idx-1; i++)
         {
             if(arr[i-1] >= arr[i])
