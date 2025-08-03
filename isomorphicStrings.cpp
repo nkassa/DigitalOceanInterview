@@ -17,16 +17,6 @@ public:
             count[t[i]] = s[i];
             countTwo[s[i]] = t[i];
         }
-        string str = "";
-        string strTwo = "";
-        for(int i = 0; i < t.size(); i++)
-        {
-            str += count[t[i]];
-        }
-        for(int i = 0; i < s.size(); i++)
-        {
-            strTwo += countTwo[s[i]];
-        }
-        return str == s && strTwo == t;
+        return true;
     }
 };
