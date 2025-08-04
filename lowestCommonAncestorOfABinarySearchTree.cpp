@@ -16,7 +16,7 @@ public:
         {
             return nullptr;
         }
-        if((root->val == p->val) || (root->val == q->val) || (root->val > p->val && root->val < q->val) || (root->val < p->val && root->val > q->val))
+        if(root == p || root == q || (root->val > p->val && root->val < q->val) || (root->val < p->val && root->val > q->val))
         {
             return root;
         }
