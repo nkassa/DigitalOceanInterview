@@ -1,34 +1,21 @@
 class Solution {
 public:
-    string findReplaceString(string s, vector<int>& indices, vector<string>& sources, vector<string>& targets) 
-    {
-        vector<pair<int, int>> ops; 
-        int k = indices.size();
+    string findReplaceString(string s, vector<int>& indices, vector<string>& sources, vector<string>& targets) {
+        int n = s.size();
+        vector<int> match(n, -1); 
         
-        for (int i = 0; i < k; i++) {
-            ops.push_back({indices[i], i});
+        for (int i = 0; i < indices.size(); i++) {
+            if (s.compare(indices[i], sources[i].size(), sources[i]) == 0) {
+                match[indices[i]] = i; 
+            }
         }
         
-        sort(ops.begin(), ops.end());
-        
         string result;
-        int i = 0; // pointer in s
-        int opIdx = 0; // pointer in ops
-        
-        while (i < s.size()) {
-            if (opIdx < k && i == ops[opIdx].first) {
-                int idx = ops[opIdx].second;
-                string& src = sources[idx];
-                string& tgt = targets[idx];
-                
-                if (s.compare(i, src.size(), src) == 0) {
-                    result += tgt;
-                    i += src.size();
-                } else {
-                    result += s[i];
-                    i++;
-                }
-                opIdx++;
+        int i = 0;
+        while (i < n) {
+            if (match[i] != -1) {
+                result += targets[match[i]];
+                i += sources[match[i]].size();
             } else {
                 result += s[i];
                 i++;
