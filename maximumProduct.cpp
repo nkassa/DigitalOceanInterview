@@ -12,6 +12,7 @@ public:
             cnt++;
             i--;
         }
+        ans = max(ans, (nums[0]*nums[1]*nums[nums.size()-1]));
         return ans;
     }
 };
