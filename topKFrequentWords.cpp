@@ -10,10 +10,9 @@ public:
         priority_queue<pair<int,string>> heap;
         for(auto [key,val]: count)
         {
-            int x = -1 * val;
-            heap.push({x, key});
+            heap.push({-1*val, key});
         }
-        if(heap.size() > k)
+        while(heap.size() > k)
         {
             heap.pop();
         }
