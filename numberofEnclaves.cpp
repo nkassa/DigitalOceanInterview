@@ -3,7 +3,6 @@ public:
     vector<vector<int>> directions = {{0,1}, {1,0}, {0,-1}, {-1,0}};
     int m;
     int n;
-    int ans = 0;
     vector<vector<bool>> seen;
     vector<vector<int>> grid;
     int numEnclaves(vector<vector<int>>& grid) 
@@ -44,15 +43,14 @@ public:
                 dfs(i, n-1);
             }
         }
-        ans = 0;
+        int ans = 0;
         for(int row = 0; row < m; row++)
         {
             for(int col = 0; col < n; col++)
             {
                 if(!seen[row][col] && grid[row][col] == 1)
                 {
-                    seen[row][col] = true;
-                    dfs(row,col);
+                    ans++;
                 }
             }
         }
@@ -60,7 +58,6 @@ public:
     }
     void dfs(int row, int col)
     {
-        ans++;
         for(vector<int> direction: directions)
         {
             int nextRow = row + direction[0];
