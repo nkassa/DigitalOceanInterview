@@ -18,6 +18,7 @@
     "string_view": "cpp",
     "utility": "cpp",
     "ostream": "cpp",
-    "ios": "cpp"
+    "ios": "cpp",
+    "sstream": "cpp"
   }
 }
