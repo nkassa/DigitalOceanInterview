@@ -13,6 +13,7 @@ public:
                 curr -= abs(s[left] - t[left]);
                 left++;
             }
+            // plus one because zero idex
             ans = max(ans, right-left+1);
         }
         return ans;
