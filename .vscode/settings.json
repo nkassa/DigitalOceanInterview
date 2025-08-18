@@ -19,6 +19,7 @@
     "utility": "cpp",
     "ostream": "cpp",
     "ios": "cpp",
-    "sstream": "cpp"
+    "sstream": "cpp",
+    "limits": "cpp"
   }
 }
