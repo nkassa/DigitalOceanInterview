@@ -14,7 +14,7 @@ public:
             {
                 right--;
             }
-            if(isalpha(s[right]) && isalpha(s[left]))
+            if(isalpha(s[left]) && isalpha(s[right]))
             {
                 char temp = s[left];
                 s[left] = s[right];
