@@ -8,14 +8,10 @@ public:
         {
             count[num]++;
         }
-        for(auto [kay, val]: count)
+        for(auto [key,val]: count)
         {
-            if(seen.find(val) != seen.end())
-            {
-                return false;
-            }
             seen.insert(val);
         }
-        return true;
+        return seen.size() == count.size();
     }
 };
