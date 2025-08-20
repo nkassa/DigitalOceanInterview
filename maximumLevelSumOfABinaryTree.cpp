@@ -14,7 +14,7 @@ public:
     int maxLevelSum(TreeNode* root) 
     {
         int level = 1;
-        int maxi = 0;
+        int maxi = INT_MIN;
         int curr = 0;
         int ans = 0;
         queue<TreeNode*> queue;
@@ -36,12 +36,13 @@ public:
                     queue.push(node->right);
                 }
             }
-            level++;
             if(maxi  < curr)
             {
                 maxi = curr;
                 ans = level;
             }
+            curr = 0;
+            level++;
         }
         return ans;
     }
