@@ -29,6 +29,6 @@ public:
                 left = mid + 1;
             }
         }
-        return left;
+        return 0;
     }
 };
