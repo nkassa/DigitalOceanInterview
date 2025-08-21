@@ -6,10 +6,8 @@ public:
         {
             if(word[i] == ch)
             {
-                string str = word.substr(0, i+1);
-                reverse(str.begin(), str.end());
-                string ans = str + word.substr(i+1, word.size()-i);
-                return ans;
+                reverse(word.begin(), word.begin() + i + 1);
+                break;
             }
         }
         return word;
