@@ -14,7 +14,7 @@ public:
             {
                 left++;
             }
-            else
+            else if(nums1[left] > nums2[right])
             {
                 right++;
             }
