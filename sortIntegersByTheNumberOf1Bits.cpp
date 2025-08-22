@@ -2,18 +2,18 @@ class Solution {
 public:
     vector<int> sortByBits(vector<int>& arr) 
     {
-        priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> heap;
-        for(int num: arr)
+        priority_queue<pair<int,int>> heap;
+        for(int i = 0; i < arr.size(); i++)
         {
-            int count = __builtin_popcount(num);
-            heap.push({count, num});
+            int cnt = __builtin_popcount(arr[i]);
+            heap.push({cnt, arr[i]});
         }
-        vector<int> ans;
-        while(!heap.empty())
+        vector<int> ans(heap.size());
+        for(int i = heap.size()-1; i >= 0; i--)
         {
-            ans.push_back(heap.top().second);
+            ans[i] = heap.top().second;
             heap.pop();
         }
         return ans;
     }
-};//
+};
