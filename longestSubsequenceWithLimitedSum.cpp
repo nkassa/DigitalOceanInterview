@@ -23,7 +23,7 @@ public:
                 }
                 else if(prefix[mid] == queries[i])
                 {
-                    right = mid;
+                    left = mid + 1;
                     break;
                 }
                 else
@@ -31,7 +31,7 @@ public:
                     right = mid - 1;
                 }
             }
-            ans.push_back(right+1);
+            ans.push_back(left);
         }
         return ans;
     }
