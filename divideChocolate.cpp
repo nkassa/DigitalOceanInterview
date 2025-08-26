@@ -20,7 +20,7 @@ public:
                 right = mid - 1;
             }
         }
-        return right;
+        return left-1;
     }
     bool check(int mid, vector<int>& sweetness, int& k)
     {
