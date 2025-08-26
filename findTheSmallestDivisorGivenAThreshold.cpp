@@ -1,39 +1,34 @@
 class Solution {
 public:
-    int limit;
     int smallestDivisor(vector<int>& nums, int threshold) 
     {
-        limit = threshold;
         int left = 1;
         int right = 0;
-        for(auto num: nums)
+        for(int num: nums)
         {
-            right = max(right, num);
+            right = max(num, right);
         }
-        cout << left << " " << right << endl;
         while(left <= right)
         {
-            int mid = left + (right-left) / 2;
-            if(check(mid, nums))
+            int mid = left + (right - left) / 2;
+            if(check(mid, threshold, nums))
             {
-                cout << "right " << mid << endl;
                 right = mid - 1;
             }
-            else 
+            else
             {
-                cout << mid << endl;
                 left = mid + 1;
             }
         }
         return left;
     }
-    bool check(int mid, vector<int>& nums)
+    bool check(int mid, int& limit, vector<int>& nums)
     {
-        long sum = 0;
-        for(double num: nums)
+        int count = 0;
+        for(int i = 0; i < nums.size(); i++)
         {
-            sum += ceil(num/mid);
+            count += ceil((double)nums[i]/mid);
         }
-        return sum <= limit;
+        return count <= limit;
     }
 };
