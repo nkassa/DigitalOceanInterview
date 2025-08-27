@@ -3,7 +3,7 @@ public:
     long long minimumTime(vector<int>& time, int totalTrips) 
     {
         long long left = 1;
-        long long right = LONG_MAX;
+        long long right = LLONG_MAX;
         while(left <= right)
         {
             long long mid = left + (right-left)/2;
