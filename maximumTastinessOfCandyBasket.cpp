@@ -2,6 +2,7 @@ class Solution {
 public:
     int maximumTastiness(vector<int>& price, int k) 
     {
+        sort(price.begin(), price.end());
         int left = 0;
         int right = 0;
         for(int num: price)
@@ -24,7 +25,7 @@ public:
     }
     bool check(int mid, vector<int>& price, int& k)
     {
-        int cnt = 0;
+        int cnt = 1;
         int lastIdx = 0;
         for(int i = 0; i < price.size(); i++)
         {
