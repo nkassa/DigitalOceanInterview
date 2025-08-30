@@ -18,15 +18,15 @@ public:
         {
             return true;
         }
-        return dfs(root, INT_MIN, INT_MAX);
+        return dfs(root, LONG_MIN, LONG_MAX);
     }
-    bool dfs(TreeNode* root, int mini, int maxi)
+    bool dfs(TreeNode* root, long mini, long maxi)
     {
         if(!root)
         {
             return true;
         }
-        if(root->val < mini || root->val > maxi)
+        if(root->val <= mini || root->val >= maxi)
         {
             return false;
         }
