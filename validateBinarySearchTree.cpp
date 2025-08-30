@@ -18,24 +18,18 @@ public:
         {
             return true;
         }
-        dfs(root);
-        for(int i = 1; i < ans.size(); i++)
-        {
-            if(ans[i-1] >= ans[i])
-            {
-                return false;
-            }
-        }
-        return true;
+        return dfs(root, INT_MIN, INT_MAX);
     }
-    void dfs(TreeNode* root)
+    bool dfs(TreeNode* root, int mini, int maxi)
     {
         if(!root)
         {
-            return;
+            return true;
         }
-        dfs(root->left);
-        ans.push_back(root->val);
-        dfs(root->right);
+        if(root->val < mini || root->val > maxi)
+        {
+            return false;
+        }
+        return dfs(root->left, mini, root->val) && dfs(root->right, root->val, maxi);
     } 
 };
