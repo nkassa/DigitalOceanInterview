@@ -11,13 +11,17 @@
  */
 class Solution {
 public:
-    vector<int> list;
+    vector<int> ans;
     bool isValidBST(TreeNode* root) 
     {
-        dfs(root);
-        for(int i = 1; i < list.size(); i++)
+        if(!root)
         {
-            if(list[i-1] >= list[i])
+            return true;
+        }
+        dfs(root);
+        for(int i = 1; i < ans.size(); i++)
+        {
+            if(ans[i-1] >= ans[i])
             {
                 return false;
             }
@@ -31,7 +35,7 @@ public:
             return;
         }
         dfs(root->left);
-        list.push_back(root->val);
+        ans.push_back(root->val);
         dfs(root->right);
-    }
+    } 
 };
